@@ -1,5 +1,10 @@
 ﻿---
+import Layout from '../layouts/Layout.astro';
+
 const IG_URL = "https://www.instagram.com/theblackworldjournal/";
+const SITE_NAME = "The Black World Journal";
+const DESCRIPTION =
+	"Political editorial focused on uplifting community through education for the Black community and beyond.";
 const CARD_LINKS = [
 	{
 		label: "Editorial",
@@ -28,96 +33,59 @@ const CARD_LINKS = [
 ];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="generator" content={Astro.generator} />
-		<title>The Black World Journal</title>
-		<meta
-			name="description"
-			content="The Black World Journal is a political, editorial focused on uplifting community in education for the Black community and beyond."
-		/>
-	</head>
-	<body>
-		<div class="sheet">
-			<header class="masthead">
-				<div class="corner-row">
-					<span class="corner-left">THE BLACK WORLD</span>
-					<span class="corner-right">2026</span>
-				</div>
-				<div class="rule"></div>
-				<h1>THE BLACK WORLD JOURNAL</h1>
-				<p class="subhead">
-					the black world journal is a political, editorical focused on uplifting
-					community in education for the black community and beyond
-				</p>
-			</header>
+<Layout title={SITE_NAME} description={DESCRIPTION}>
+	<div class="sheet">
+		<header class="masthead">
+			<div class="corner-row">
+				<span class="corner-left">THE BLACK WORLD</span>
+				<span class="corner-right">2026</span>
+			</div>
+			<div class="rule"></div>
+			<h1>THE BLACK WORLD JOURNAL</h1>
+			<p class="subhead">
+				the black world journal is a political, editorical focused on uplifting
+				community in education for the black community and beyond
+			</p>
+		</header>
 
-			<main class="headlines">
-				<a class="headline-button" href={IG_URL} target="_blank" rel="noreferrer">
-					Instagram: @theblackworldjournal
-				</a>
+		<main class="headlines">
+			<a class="headline-button" href={IG_URL} target="_blank" rel="noreferrer">
+				Instagram: @theblackworldjournal
+			</a>
 
-				<section class="card-grid" aria-label="Explore sections">
-					{CARD_LINKS.map((card) => (
-						<a class="card" href={card.href}>
-							<img src={card.image} alt={card.label} loading="lazy" />
-							<span>{card.label}</span>
-						</a>
-					))}
-				</section>
+			<section class="card-grid" aria-label="Explore sections">
+				{CARD_LINKS.map((card) => (
+					<a class="card" href={card.href}>
+						<img src={card.image} alt={card.label} loading="lazy" />
+						<span>{card.label}</span>
+					</a>
+				))}
+			</section>
 
-				<form
-					action="https://buttondown.com/api/emails/embed-subscribe/theblackworldjournal"
-					method="post"
-					class="signup-form"
-				>
-					<label for="bd-email">Enter your email</label>
-					<input
-						type="email"
-						name="email"
-						id="bd-email"
-						placeholder="you@example.com"
-						required
-					/>
-					<input type="submit" value="Subscribe" />
-					<p>
-						<a
-							href="https://buttondown.com/refer/theblackworldjournal"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Powered by Buttondown.
-						</a>
-					</p>
-				</form>
+			<form
+				action="https://buttondown.com/api/emails/embed-subscribe/theblackworldjournal"
+				method="post"
+				class="signup-form"
+			>
+				<label for="bd-email">Enter your email</label>
+				<input
+					type="email"
+					name="email"
+					id="bd-email"
+					placeholder="you@example.com"
+					required
+				/>
+				<input type="submit" value="Subscribe" />
+			</form>
 
-				<p class="headline-soon">Substack • Coming Soon</p>
-			</main>
-		</div>
-	</body>
-</html>
+			<p class="headline-soon">Substack • Coming Soon</p>
+		</main>
+	</div>
+</Layout>
 
 <style>
-	@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&display=swap");
-
-	:global(body) {
-		margin: 0;
-		font-family: "EB Garamond", "Times New Roman", serif;
-		color: #111;
-		background: #fff;
-		min-height: 100vh;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	:global(*) {
-		box-sizing: border-box;
-	}
+	/* Removed global styles as they are now in Layout.astro */
+	/* Removed @import as it is now in Layout.astro */
 
 	.sheet {
 		width: min(900px, 100%);
@@ -196,6 +164,7 @@ const CARD_LINKS = [
 		border: 2px solid #111;
 		padding: 18px 20px;
 		text-align: left;
+		animation: rise-in 0.7s ease-out both;
 	}
 
 	.signup-form label {
@@ -225,6 +194,14 @@ const CARD_LINKS = [
 	.signup-form input[type="submit"]:hover {
 		background: #fff;
 		color: #111;
+	}
+
+	.signup-form input[type="submit"] {
+		transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+	}
+
+	.signup-form input[type="submit"]:hover {
+		transform: translateY(-2px);
 	}
 
 	.signup-form p {
@@ -275,6 +252,250 @@ const CARD_LINKS = [
 	.card:hover {
 		transform: translateY(-2px);
 		box-shadow: 4px 4px 0 #111;
+	}
+
+	@keyframes rise-in {
+		from {
+			opacity: 0;
+			transform: translateY(12px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		* {
+			animation: none !important;
+			transition: none !important;
+		}
+	}
+
+	.headline-soon {
+		margin: 0;
+		text-transform: uppercase;
+		letter-spacing: 0.18em;
+		font-size: clamp(0.8rem, 2.4vw, 1rem);
+	}
+
+	@media (max-width: 640px) {
+		.sheet {
+			padding: 22px 16px 20px;
+		}
+
+		.corner-row {
+			font-size: 0.62rem;
+			letter-spacing: 0.22em;
+			padding: 0 2px;
+		}
+
+		.subhead {
+			letter-spacing: 0.05em;
+			font-size: 0.85rem;
+		}
+
+		.signup-form {
+			text-align: center;
+		}
+
+		.card-grid {
+			gap: 28px;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+</style>
+
+	.sheet {
+		width: min(900px, 100%);
+		padding: 28px 20px 24px;
+	}
+
+	.masthead {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		text-align: center;
+		padding-bottom: 12px;
+		padding-top: 18px;
+		position: relative;
+	}
+
+	.corner-row {
+		display: flex;
+		justify-content: space-between;
+		font-size: 0.75rem;
+		letter-spacing: 0.25em;
+		text-transform: uppercase;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		padding: 0 6px;
+	}
+
+	.corner-left,
+	.corner-right {
+		display: inline-block;
+	}
+
+	.rule {
+		border-top: 2px solid #111;
+		margin: 4px 0 10px;
+	}
+
+	.issue,
+	.corner-left,
+	.corner-right {
+		margin: 0;
+	}
+
+	h1 {
+		margin: 0;
+		font-size: clamp(2.1rem, 6vw, 3.6rem);
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+	}
+
+	.subhead {
+		margin: 0;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+
+	.headlines {
+		display: grid;
+		gap: 14px;
+		padding-top: 20px;
+		text-align: center;
+	}
+
+	.headline-button {
+		color: #111;
+		text-decoration: none;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		font-size: clamp(1rem, 3.6vw, 1.35rem);
+		border: 2px solid #111;
+		padding: 16px 24px;
+		display: inline-block;
+	}
+
+	.signup-form {
+		display: grid;
+		gap: 10px;
+		border: 2px solid #111;
+		padding: 18px 20px;
+		text-align: left;
+		animation: rise-in 0.7s ease-out both;
+	}
+
+	.signup-form label {
+		text-transform: uppercase;
+		letter-spacing: 0.18em;
+		font-size: 0.8rem;
+	}
+
+	.signup-form input[type="email"] {
+		border: 1px solid #111;
+		padding: 12px 14px;
+		font-family: inherit;
+		font-size: 1rem;
+	}
+
+	.signup-form input[type="submit"] {
+		border: 1px solid #111;
+		background: #111;
+		color: #fff;
+		padding: 12px 14px;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		font-weight: 600;
+		cursor: pointer;
+	}
+
+	.signup-form input[type="submit"]:hover {
+		background: #fff;
+		color: #111;
+	}
+
+	.signup-form input[type="submit"] {
+		transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+	}
+
+	.signup-form input[type="submit"]:hover {
+		transform: translateY(-2px);
+	}
+
+	.signup-form p {
+		margin: 0;
+		font-size: 0.72rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.signup-form a {
+		color: #111;
+		text-decoration: none;
+	}
+
+	.card-grid {
+		display: grid;
+		gap: 24px;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.card {
+		display: grid;
+		gap: 14px;
+		text-decoration: none;
+		color: #111;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-weight: 600;
+		border: 2px solid #111;
+		padding: 16px;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.card img {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		height: auto;
+		object-fit: cover;
+		border: 1px solid #111;
+	}
+
+	.card span {
+		display: block;
+		font-size: 0.8rem;
+		text-align: center;
+	}
+
+	.card:hover {
+		transform: translateY(-2px);
+		box-shadow: 4px 4px 0 #111;
+	}
+
+	@keyframes rise-in {
+		from {
+			opacity: 0;
+			transform: translateY(12px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		* {
+			animation: none !important;
+			transition: none !important;
+		}
 	}
 
 	.headline-soon {

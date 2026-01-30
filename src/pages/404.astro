@@ -1,17 +1,9 @@
-﻿---
-const IG_URL = "https://www.instagram.com/theblackworldjournal/";
+---
 const SITE_URL = "https://theblackworldjournal.vercel.app";
 const SITE_NAME = "The Black World Journal";
-const PAGE_TITLE = `${SITE_NAME} — Positions`;
-const DESCRIPTION =
-	"Roles, collaborations, and opportunities to work with the journal.";
+const PAGE_TITLE = `${SITE_NAME} — Page Not Found`;
+const DESCRIPTION = "This page could not be found.";
 const OG_IMAGE = `${SITE_URL}/images/black-world-journal-logo.jpeg`;
-const NAV_LINKS = [
-  { label: "Editorial", href: "/editorial" },
-  { label: "Education", href: "/education" },
-  { label: "Community", href: "/community" },
-  { label: "Positions", href: "/positions" }
-];
 ---
 
 <html lang="en">
@@ -26,7 +18,7 @@ const NAV_LINKS = [
 		<meta property="og:title" content={PAGE_TITLE} />
 		<meta property="og:description" content={DESCRIPTION} />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content={`${SITE_URL}/positions`} />
+		<meta property="og:url" content={`${SITE_URL}/404`} />
 		<meta property="og:image" content={OG_IMAGE} />
 		<meta property="og:site_name" content={SITE_NAME} />
 		<meta name="twitter:card" content="summary" />
@@ -42,28 +34,12 @@ const NAV_LINKS = [
 					<span class="corner-right">2026</span>
 				</div>
 				<div class="rule"></div>
-				<h1>POSITIONS</h1>
-				<p class="subhead">
-					Roles, collaborations, and opportunities to work with the journal.
-				</p>
+				<h1>PAGE NOT FOUND</h1>
+				<p class="subhead">The page you are looking for does not exist.</p>
 			</header>
 
 			<main class="content">
-				<a class="home-link" href="/">Back to Home</a>
-				<nav class="page-nav">
-					{NAV_LINKS.map((link) => (
-						<a class="nav-link" href={link.href}>{link.label}</a>
-					))}
-				</nav>
-
-				<p class="body-copy">
-					This page will list open roles and collaboration opportunities. Reach out
-					via Instagram while we finalize submissions.
-				</p>
-
-				<a class="headline-button" href={IG_URL} target="_blank" rel="noreferrer">
-					Follow on Instagram
-				</a>
+				<a class="headline-button" href="/">Return Home</a>
 			</main>
 		</div>
 	</body>
@@ -115,11 +91,6 @@ const NAV_LINKS = [
 		padding: 0 6px;
 	}
 
-	.corner-left,
-	.corner-right {
-		display: inline-block;
-	}
-
 	.rule {
 		border-top: 2px solid #111;
 		margin: 4px 0 10px;
@@ -146,45 +117,6 @@ const NAV_LINKS = [
 		padding-top: 20px;
 		text-align: center;
 		animation: rise-in 0.6s ease-out both;
-	}
-
-	.page-nav {
-		display: flex;
-		justify-content: center;
-		gap: 16px;
-		flex-wrap: wrap;
-	}
-
-	.home-link {
-		justify-self: center;
-		text-decoration: none;
-		color: #111;
-		text-transform: uppercase;
-		letter-spacing: 0.16em;
-		font-weight: 700;
-		border: 2px solid #111;
-		padding: 10px 18px;
-		display: inline-block;
-	}
-
-	.nav-link {
-		text-decoration: none;
-		color: #111;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-		font-weight: 600;
-		border-bottom: 1px solid transparent;
-		padding-bottom: 4px;
-	}
-
-	.nav-link:hover {
-		border-color: #111;
-	}
-
-	.body-copy {
-		margin: 0;
-		font-size: 1.05rem;
-		line-height: 1.6;
 	}
 
 	.headline-button {
