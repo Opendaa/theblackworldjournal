@@ -1,0 +1,5 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f4f1ea" />
+  <rect x="36" y="36" width="728" height="428" fill="#ffffff" stroke="#111111" stroke-width="4" />
+  <text x="400" y="255" text-anchor="middle" font-family="EB Garamond, Times New Roman, serif" font-size="52" letter-spacing="6" fill="#111111">EDITORIAL</text>
+</svg>

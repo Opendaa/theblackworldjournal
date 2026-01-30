@@ -1,0 +1,184 @@
+﻿---
+const IG_URL = "https://www.instagram.com/theblackworldjournal/";
+const NAV_LINKS = [
+  { label: "Editorial", href: "/editorial" },
+  { label: "Education", href: "/education" },
+  { label: "Community", href: "/community" },
+  { label: "Positions", href: "/positions" }
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>The Black World Journal — Education</title>
+		<meta
+			name="description"
+			content="The Black World Journal education page."
+		/>
+	</head>
+	<body>
+		<div class="sheet">
+			<header class="masthead">
+				<div class="corner-row">
+					<span class="corner-left">THE BLACK WORLD</span>
+					<span class="corner-right">2026</span>
+				</div>
+				<div class="rule"></div>
+				<h1>EDUCATION</h1>
+				<p class="subhead">
+					Resources, reporting, and stories focused on learning and opportunity.
+				</p>
+			</header>
+
+			<main class="content">
+				<nav class="page-nav">
+					{NAV_LINKS.map((link) => (
+						<a class="nav-link" href={link.href}>{link.label}</a>
+					))}
+				</nav>
+
+				<p class="body-copy">
+					This page will highlight education initiatives, policy updates, and
+					community learning programs as they develop.
+				</p>
+
+				<a class="headline-button" href={IG_URL} target="_blank" rel="noreferrer">
+					Follow on Instagram
+				</a>
+			</main>
+		</div>
+	</body>
+</html>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&display=swap");
+
+	:global(body) {
+		margin: 0;
+		font-family: "EB Garamond", "Times New Roman", serif;
+		color: #111;
+		background: #fff;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	:global(*) {
+		box-sizing: border-box;
+	}
+
+	.sheet {
+		width: min(900px, 100%);
+		padding: 28px 20px 24px;
+	}
+
+	.masthead {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		text-align: center;
+		padding-bottom: 12px;
+	}
+
+	.corner-row {
+		display: flex;
+		justify-content: space-between;
+		font-size: 0.75rem;
+		letter-spacing: 0.25em;
+		text-transform: uppercase;
+	}
+
+	.corner-left,
+	.corner-right {
+		display: inline-block;
+	}
+
+	.rule {
+		border-top: 2px solid #111;
+		margin: 4px 0 10px;
+	}
+
+	h1 {
+		margin: 0;
+		font-size: clamp(2.1rem, 6vw, 3.2rem);
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+	}
+
+	.subhead {
+		margin: 0;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+
+	.content {
+		display: grid;
+		gap: 18px;
+		padding-top: 20px;
+		text-align: center;
+	}
+
+	.page-nav {
+		display: flex;
+		justify-content: center;
+		gap: 16px;
+		flex-wrap: wrap;
+	}
+
+	.nav-link {
+		text-decoration: none;
+		color: #111;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-weight: 600;
+		border-bottom: 1px solid transparent;
+		padding-bottom: 4px;
+	}
+
+	.nav-link:hover {
+		border-color: #111;
+	}
+
+	.body-copy {
+		margin: 0;
+		font-size: 1.05rem;
+		line-height: 1.6;
+	}
+
+	.headline-button {
+		color: #111;
+		text-decoration: none;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		font-size: clamp(0.95rem, 3vw, 1.2rem);
+		border: 2px solid #111;
+		padding: 12px 22px;
+		display: inline-block;
+	}
+
+	@media (max-width: 640px) {
+		.sheet {
+			padding: 22px 16px 20px;
+		}
+
+		.corner-row {
+			font-size: 0.62rem;
+			letter-spacing: 0.22em;
+			padding: 0 2px;
+		}
+
+		.subhead {
+			letter-spacing: 0.05em;
+			font-size: 0.85rem;
+		}
+	}
+</style>
