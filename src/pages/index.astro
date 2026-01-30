@@ -1,0 +1,155 @@
+---
+const IG_URL = "https://www.instagram.com/theblackworldjournal/";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="generator" content={Astro.generator} />
+		<title>The Black World Journal</title>
+		<meta
+			name="description"
+			content="The Black World Journal is a political, editorial focused on uplifting community in education for the Black community and beyond."
+		/>
+	</head>
+	<body>
+		<div class="sheet">
+			<header class="masthead">
+				<div class="corner-row">
+					<span class="corner-left">THE BLACK WORLD</span>
+					<span class="corner-right">2026</span>
+				</div>
+				<div class="rule"></div>
+				<h1>THE BLACK WORLD JOURNAL</h1>
+				<p class="subhead">
+					the black world journal is a political, editorical focused on uplifting
+					community in education for the black community and beyond
+				</p>
+			</header>
+
+			<main class="headlines">
+				<a class="headline-button" href={IG_URL} target="_blank" rel="noreferrer">
+					Instagram: @theblackworldjournal
+				</a>
+				<p class="headline-soon">Substack • Coming Soon</p>
+			</main>
+		</div>
+	</body>
+</html>
+
+<style>
+	@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700&display=swap");
+
+	:global(body) {
+		margin: 0;
+		font-family: "EB Garamond", "Times New Roman", serif;
+		color: #111;
+		background: #fff;
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	:global(*) {
+		box-sizing: border-box;
+	}
+
+	.sheet {
+		width: min(900px, 100%);
+		padding: 28px 20px 24px;
+	}
+
+	.masthead {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		text-align: center;
+		padding-bottom: 12px;
+	}
+
+	.corner-row {
+		display: flex;
+		justify-content: space-between;
+		font-size: 0.75rem;
+		letter-spacing: 0.25em;
+		text-transform: uppercase;
+	}
+
+	.corner-left,
+	.corner-right {
+		display: inline-block;
+	}
+
+	.rule {
+		border-top: 2px solid #111;
+		margin: 4px 0 10px;
+	}
+
+	.issue,
+	.corner-left,
+	.corner-right {
+		margin: 0;
+	}
+
+	h1 {
+		margin: 0;
+		font-size: clamp(2.1rem, 6vw, 3.6rem);
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+	}
+
+	.subhead {
+		margin: 0;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+
+	.headlines {
+		display: grid;
+		gap: 14px;
+		padding-top: 20px;
+		text-align: center;
+	}
+
+	.headline-button {
+		color: #111;
+		text-decoration: none;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		font-size: clamp(1rem, 3.6vw, 1.35rem);
+		border: 2px solid #111;
+		padding: 16px 24px;
+		display: inline-block;
+	}
+
+	.headline-soon {
+		margin: 0;
+		text-transform: uppercase;
+		letter-spacing: 0.18em;
+		font-size: clamp(0.8rem, 2.4vw, 1rem);
+	}
+
+	@media (max-width: 640px) {
+		.sheet {
+			padding: 22px 16px 20px;
+		}
+
+		.corner-row {
+			font-size: 0.62rem;
+			letter-spacing: 0.22em;
+			padding: 0 2px;
+		}
+
+		.subhead {
+			letter-spacing: 0.05em;
+			font-size: 0.85rem;
+		}
+	}
+	</style>
